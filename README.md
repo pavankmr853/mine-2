@@ -1,5 +1,5 @@
 pragma solidity >=0.4.2;
-contract Ownership {
+contract Pavan {
     address public owner;
     // the owner has to visible
     //use constructor to assign the owner
@@ -32,7 +32,7 @@ contract Ownership {
 //In ico the pause condition is used whenever the Hacker tried to hack the ico. 
 //If the adddress does not matches the ico will be paused and in this 
 //we can use resume also fromm where we had stopped
-contract Pause is Ownership{
+contract Pause is Pavan{
     // we decalare the pause with bool datatype
     bool public pause;
     constructor() public {
@@ -51,7 +51,7 @@ contract Pause is Ownership{
 }
 //stop type in ico it is used to whenever the onlyOwner address in not matched and it will be dead ico
 //and we have option of Play and it is started from starting
-contract Stop is Ownership {
+contract Stop is Pavan {
     bool public stop;
     constructor() public payable {
         stop = false;
@@ -67,7 +67,7 @@ contract Stop is Ownership {
         stop = false;
     }
 }
-contract pardhu is Ownership,Pause,Stop {
+contract pardhu is Pavan,Pause,Stop {
     uint num;
     string name;
     function setdata(uint a, string memory b)onlyOwner isPaused isStop public returns(string memory) {
